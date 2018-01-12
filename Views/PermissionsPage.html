@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html lang="en" ng-app="EvalSystem">
+<head>
+    <meta charset="utf-8" />
+    <title>Permissions</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.js"></script>
+    <script src="../Controllers/PermissionsPage.js"></script>
+    <link rel="stylesheet" type="text/css" href="../CSS/PermissionsPage.css">
+</head>
+<body>
+    <div class="accordion Vertical-Accordian">
+        <ul>
+            <li>
+                <input id="pane1-button" type="radio" name="select" class="accordion-select" checked />
+                <div class="accordion-title">
+                    <span>Faculty Selection</span>
+                </div>
+                <div class="accordion-content" ng-controller="FacultySelectController">
+                    <h4 style="display:flex; justify-content:center; margin:auto">Select Faculty Member to Modify Permissions</h4>
+                    <span style="display:flex; justify-content:center; margin-top:10px">
+                        <select id="facultyList" ng-model="FacultySelected" ng-change="showSelectValue(FacultySelected)" size="10" multiple>
+                            <option ng-repeat="fac in facs" value="{{fac.instructorID}}">
+                                {{fac.LastName + ", " + fac.FirstName}}
+                            </option>
+                        </select>
+                    </span>
+                    <span style="display:flex; justify-content:center; margin-top:10px">
+                        <button name="select" ng-click="SelectFacultyMember" onclick="getElementById('pane2-button').click()">Next</button>
+                    </span>
+                </div>
+                <div class="accordion-separator"></div>
+            </li>         
+            <li>
+                <input id="pane2-button" type="radio" name="select" class="accordion-select" />
+                <div class="accordion-title">
+                    <span>Permissions Selection</span>
+                </div>
+                <div class="accordion-content">                    
+                    <form id="reportOptionForm" action="" method="POST" onsubmit="return buildReport()">
+                        <div id="LeftColumn" style="float:left;width:45%">
+                            <h4 style="display:flex; justify-content:center;">Permissions Options:</h4>
+                            <span style="display:flex; justify-content:center;margin-top:10px" ng-controller="PermissionsListController">
+                                <select id="permList" ng-model="permListSelected" ng-change="showSelectValue(permListSelected)" style="width:300px; margin:auto; display:grid;overflow-y:scroll;height:185px;" size="10">
+                                    <option value="Administrator">Administrator</option>
+                                    <option value="Manager">Manager</option>
+                                    <option value="Instructor">Instructor</option>
+                                    <option value="Support Staff">Support Staff</option>
+                                    <option value="Site Admin">Site Admin</option>
+                                    <option value="Site Manager">Site Manager</option>
+                                    <option value="Site Staff">Site Staff</option>
+                                    <option value="Remote Proctor Admin">Remote Proctor Admin</option>
+                                    <option value="Remote Proctor">Remote Proctor</option>
+                                    <option value="WSU Staff">WSU Staff</option>
+                                    <option value="Adjunct">Adjunct</option>
+                                    <option value="Department Chair">Department Chair</option>
+                                    <option value="Dean">Dean</option>
+                                    <option value="Reports Instructor">Reports Instructor</option>
+                                    <option value="Tenure">Tenure</option>
+                                    <option value="Single Eval Admin">Single Eval Admin</option>
+                                    <option value="Demo Instructor">Demo Instructor</option>
+                                    <option value="Student">Student</option>
+                                    <option value="Standards Admin">Standards Admin</option>
+                                    <option value="Adjunct Advisor">Adjunct Advisor</option>
+                                </select>
+                            </span>
+                            <h4 style="display:flex; justify-content:center; margin:auto">Departments Options:</h4>
+                            <span style="display:flex; justify-content:center; margin-top:10px" ng-controller="DeptController">
+                                <select id="deptList" ng-model="deptListSelected" ng-change="showSelectValue(deptListSelected)" style="-webkit-appearance:listbox;width:300px;margin:auto;display:grid;overflow-y:scroll;height:185px;" size="10">
+                                    <option ng-repeat="dept in depts" value="{{ dept.DepartmentName }}">
+                                        {{ dept.DepartmentName }}
+                                    </option>
+                                </select>
+                            </span>
+                           </div>
+                        <div ng-controller="RoleController">
+                            <div  id="CenterColumn" style="float:left;width:10%">
+                                <div style="height:194px"></div>
+                                <div>Changes Saved!</div>
+                                <button ng-click="AddRole()" class="addRemove" type="button">Add <br />=></button>
+                                <div style="height:7px"></div>
+                                <button ng-click="RemoveRole()" class="addRemove" type="button"><=<br /> Remove</button>
+                            </div>
+                            <div id="RightColumn" style="float:right;width:45%">
+                                <h4 id="FacultyNameHeader" style="display:flex; justify-content:center;">Please select a faculty member</h4>
+                                <span style="display:flex; justify-content:center; margin-top:10px" >
+                                    <select id="roleList" ng-model="roleListSelected" ng-change="showSelectValue(roleListSelected)" style="-webkit-appearance:listbox;width:300px;margin:auto;display:grid;overflow-y:scroll;height:400px;" size="25">
+                                        <option ng-repeat="role in roles" value="{{ role.RoleId }}">
+                                            {{role.RoleDepartment + " - " + role.RolePermission }}
+                                        </option>
+                                    </select>
+                                </span>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="accordion-separator"></div>
+            </li>
+        </ul>
+    </div>
+
+</body>
+</html>

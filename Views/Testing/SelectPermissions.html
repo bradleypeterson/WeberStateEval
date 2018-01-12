@@ -1,0 +1,115 @@
+﻿<!DOCTYPE html>
+<html lang ="en-US">
+<head>
+	<title Secretary Permission Page>Select Permission</title>
+	<meta charset = "UTF-8"/>
+	<link rel = "stylesheet" type = "text/css" href = "SecretaryPermission.css">
+	<script type ="text/javascript">
+        var expanded = false;
+        var dExpanded = false;
+
+		//function showCheckboxes() {
+		//var checkboxes = document.getElementById("checkboxes");
+		//if (!expanded) {
+		//	checkboxes.style.display = "block";
+		//	expanded = true;
+		//  } else {
+		//	checkboxes.style.display = "none";
+		//	expanded = false;
+		//  }
+  //      }
+
+  //      function showDepartmentListCheckboxes() {
+  //          var dcheckboxes = document.getElementById("DepartmentListcheckboxes");
+  //          if (!dExpanded) {
+  //              dcheckboxes.style.display = "block";
+  //              dExpanded = true;
+  //          } else {
+  //              dcheckboxes.style.display = "none";
+  //              dExpanded = false;
+  //          }
+  //      }
+	</script>	
+</head>	
+<body>
+	<br>
+	<br>
+    <div id="LeftColumn">
+	<h3>Select Permission(s)</h3>
+	
+		<div class="PermissionList">
+			<!--<div class="selectBox" onclick="showCheckboxes()">
+				<select>
+					<option>Select Permission(s)</option>
+				</select>
+				<div class="overSelect"></div>
+			</div>-->
+			<div id="checkboxes">
+				<label for ="Administrator"> <input type="radio" name="Role" id="Administrator"/>1 Administrator</label>
+				<label for ="Manager"><input type="radio" name="Role" id="Manager"/>2 Manager</label>
+				<label for ="Instructor"><input type="radio" name="Role" id="Instructor"/>3 Instructor</label>
+				<label for ="Support Staff"><input type="radio" name="Role" id="Support Staff"/>4 Support Staff</label>
+				<label for ="Site Admin"><input type="radio" name="Role" id="Site Admin"/>5 Site Admin</label>
+				<label for ="Site Manager"><input type="radio" name="Role" id="Site Manager"/>6 Site Manager</label>
+				<label for ="Site Staff"><input type="radio" name="Role" id="Site Staff"/>7 Site Staff</label>
+				<label for ="Remote Proctor Admin"><input type="radio" name="Role" id="Remote Proctor Admin"/>8 Remote Proctor Admin</label>
+				<label for ="Remote Proctor"><input type="radio" name="Role" id="Remote Proctor"/>9 Remote Proctor</label>
+				<label for ="WSU Staff"><input type="radio" name="Role" id="WSU Staff"/>11 WSU Staff</label>
+				<label for ="Adjunct"><input type="radio" name="Role" id="Adjunct"/>12 Adjunct</label>
+				<label for ="Department Chair"><input type="radio" name="Role" id="Department Chair"/>13 Department Chair</label>
+				<label for ="Dean"><input type="radio" name="Role" id="Dean"/>14 Dean</label>
+				<label for ="Reports Instructor"><input type="radio" name="Role" id="Reports Instructor"/>15 Reports Instructor</label>
+				<label for ="Tenure"><input type="radio" name="Role" id="Tenure"/>16 Tenure</label>
+				<label for ="Single Eval Admin"><input type="radio" name="Role" id="Single Eval Admin"/>17 Single Eval Admin</label>
+				<label for ="Demo Instructor"><input type="radio" name="Role" id="Demo Instructor"/>18 Demo Instructor</label>
+				<label for ="Student"><input type="radio" name="Role" id="Student"/>19 Student</label>
+				<label for ="Standards Admin"><input type="radio" name="Role" id="Standards Admin"/>20 Standards Admin</label>
+				<label for ="Adjunct Advisor"><input type="radio" name="Role" id="Adjunct Advisor"/>21 Adjunct Advisor</label>
+				
+			</div>
+		</div>
+	
+	<br>
+	<h3>Select Department(s)</h3>
+	
+		<div class="DepartmentList">
+			    <!--<div class="selectBox" onclick="showDepartmentListCheckboxes()">
+				<select>
+					<option>Select Department(s)</option>
+				</select>
+				<div class="overSelect"></div>
+				</div>-->
+				<div id="DepartmentListcheckboxes">
+					<label for ="ComputerScience"> <input type="radio" name="Department" id="ComputerScience"/>1 ComputerScience</label>
+					<label for ="Math"><input type="radio" name="Department" id="Math"/>2 Math</label>
+					<label for ="Physics"><input type="radio" name="Department" id="Physics"/>3 Physics</label>										
+				</div>
+			</div>
+	</div>
+    <div id="CenterColumn">
+            <div style="height:300px"></div>
+            <button onclick="" type="button">Add =></button>
+        <button onclick="" type="button"><= Remove</button>
+     </div>
+    <div id="RightColumn">
+        <div class="RoleList">          
+            <div id="RoleListCheckboxes">
+                <label for="Adj Coord ComputerScience"> <input type="checkbox" id="Adj Coord ComputerScience" />Adj Coord ComputerScience</label>
+                <label for="Adj Coord Math"><input type="checkbox"  id="Adj Coord Math" />Adj Coord Math</label>
+                <label for="Adj Coord Physics"><input type="checkbox"  id="Adj Coord Physics" />Adj Coord Physics</label>
+            </div>
+        </div>
+    </div>
+	<!--<div id="NextBackButton">
+		<button onclick="location.href='SelectInstructor.html'" type="button">
+		 Back</button>
+	
+		<button onclick="location.href='PermissionResults.html'" type="button">
+		 Next</button>
+		 		
+	</div>-->
+	
+</body>
+</html>
+
+
